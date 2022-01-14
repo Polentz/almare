@@ -1,0 +1,157 @@
+@keyframes fade {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+* {
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+}
+  
+body::-webkit-scrollbar-track {
+    background: whitesmoke; 
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: #feb398;
+    border-radius: 20px;
+    border: 2px solid whitesmoke;
+}
+   
+a {
+    text-decoration: none;
+    color: #feb398;
+}
+
+a:visited {
+    color: #feb398;
+}
+
+h1::selection,
+h2::selection,
+p::selection,
+em::selection,
+strong::selection,
+i::selection,
+div::selection {
+    color: #000;
+    background-color: #feb398;
+}
+
+a::selection {
+    color: #fff;
+    background-color: #feb398;
+}
+
+
+.background {
+    background-image: url("assets/almare-bg-01.png");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;  
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.logo-container {
+    width: 100vw;
+    height: 100vh;
+    /* background-color: #f7f3ed; */
+    overflow: hidden;
+}
+
+.logo-container img {
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main {
+    position: relative;
+    padding: calc(2vw + 16px);
+    animation: fade 1s ease-in 1;
+}
+
+.main-content {
+    position: relative;
+    z-index: 2;
+    width: 65%;
+    height: auto;
+    mix-blend-mode: difference;
+}
+
+.blend {
+    mix-blend-mode: normal;
+    transition: all .5s ease-in;
+}
+
+.main-content p {
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    /* font-size: 3em; */
+    font-size: calc(2.5vw + 16px);
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+/* .main-content a {
+    font-weight: 400;
+} */
+
+.copy {
+    margin-bottom: 128px;
+}
+
+.copy p {
+    margin-bottom: 32px;
+}
+
+.minor-content {
+    width: 15%;
+    position: fixed;
+    top: calc(2vw + 16px);
+    right: calc(2vw + 16px);
+    z-index: 2;
+}
+
+.minor-content div {
+    margin-bottom: 32px;
+}
+
+.minor-content div h2, 
+.minor-content div p,
+.minor-content div a {
+    display: block;
+    color: #fff;
+    font-family: "Jost", sans-serif;
+    font-weight: 500;
+    /* font-size: 1em; */
+    font-size: calc(0.5vw + 8px);
+    line-height: 1.2;
+    text-align: right;
+}
+
+#lang a,
+/* #interview .block h2, */
+#interview .block a {
+    color: #feb398;
+    /* color: #1313eb; */
+}
+
