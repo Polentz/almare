@@ -1,0 +1,133 @@
+@keyframes fade {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+* {
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    width: 12px;
+}
+  
+body::-webkit-scrollbar-track {
+    background: #fff; 
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: #1c1cff;
+    border-radius: 20px;
+    border: 2px solid #fff;
+}
+   
+a {
+    color: #fff;
+}
+
+a:visited {
+    color: #fff;
+}
+
+a:hover {
+    color: #1c1cff;
+}
+
+h1::selection,
+h2::selection,
+p::selection,
+em::selection,
+strong::selection,
+i::selection,
+div::selection {
+    color: #000;
+    background-color: #feb398;
+}
+
+a::selection {
+    color: #fff;
+    background-color: #feb398;
+}
+
+
+.background {
+    background-image: url("assets/almare-bg-01.png");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;  
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.main {
+    position: relative;
+    padding: calc(2vw + 16px);
+    animation: fade 1s ease-in 1;
+}
+
+.main-content {
+    position: relative;
+    z-index: 2;
+    width: 65%;
+    height: auto;
+}
+
+.main-content p {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: calc(2.5vw + 16px);
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.copy {
+    margin-bottom: 128px;
+}
+
+.copy p {
+    margin-bottom: 32px;
+}
+
+.minor-content {
+    width: 15%;
+    position: fixed;
+    top: calc(2vw + 16px);
+    right: calc(2vw + 16px);
+    z-index: 2;
+}
+
+.minor-content div {
+    margin-bottom: 32px;
+}
+
+.minor-content div h2, 
+.minor-content div p,
+#lang a {
+    color: #fff;
+    font-family: "Jost", sans-serif;
+    font-weight: 500;
+    font-size: calc(0.5vw + 8px);
+    line-height: 1.2;
+    text-align: right;
+}
+
+#lang a {
+    display: block;
+    color: #1c1cff;
+}
+
+.contact p a {
+    font-size: calc(0.5vw + 16px);
+}

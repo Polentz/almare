@@ -14,26 +14,32 @@ body {
 }
 
 body::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
 }
   
 body::-webkit-scrollbar-track {
-    background: whitesmoke; 
+    background: #fff; 
 }
   
 body::-webkit-scrollbar-thumb {
-    background-color: #feb398;
+    background-color: #1c1cff;
     border-radius: 20px;
-    border: 2px solid whitesmoke;
+    border: 2px solid #fff;
 }
    
 a {
     text-decoration: none;
-    color: #feb398;
+    color: #1c1cff;
+    transition: all .3s ease;
 }
 
 a:visited {
+    color: #1c1cff;
+}
+
+a:hover {
     color: #feb398;
+    font-style: italic;
 }
 
 h1::selection,
@@ -56,7 +62,7 @@ a::selection {
 .background {
     background-image: url("assets/almare-bg-01.png");
     background-position: center;
-    background-size: cover;
+    background-size: 50%;
     background-attachment: fixed;
     background-repeat: no-repeat;  
     width: 100%;
@@ -67,19 +73,16 @@ a::selection {
     z-index: 1;
 }
 
-.logo-container {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    /* background-color: #f7f3ed; */
-}
-
-.logo-container img {
-    width: 70%;
+.background::after {
+    content: '';
+    background-color: #fff; 
+    width: 100%;
+    height: 100%;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: .4;
 }
 
 .main {
@@ -93,23 +96,15 @@ a::selection {
     z-index: 2;
     width: 65%;
     height: auto;
-    opacity: 0.8;
-    mix-blend-mode: difference;
-}
-
-.blend {
-    opacity: 1;
-    mix-blend-mode: normal;
-    transition: all .2s ease-in;
 }
 
 .main-content p {
     font-family: "Inter", sans-serif;
-    font-weight: 300;
-    font-size: calc(2.5vw + 16px);
+    font-weight: 500;
+    font-size: calc(1vw + 16px);
     line-height: 1.2;
     text-transform: uppercase;
-    color: #fff;
+    color: #000;
 }
 
 .copy {
@@ -129,24 +124,25 @@ a::selection {
 }
 
 .minor-content div {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
 }
 
 .minor-content div h2, 
 .minor-content div p,
 .minor-content div a {
     display: block;
-    color: #fff;
-    font-family: "Jost", sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 500;
-    font-size: calc(0.5vw + 8px);
+    font-size: 16px;
     line-height: 1.2;
     text-align: right;
 }
 
-#lang a,
-#interview .block a {
-    color: #feb398;
-    /* color: #1313eb; */
+#lang a {
+    color: #1313eb;
+}
+
+.contact p a {
+    font-size: 16px;
 }
 

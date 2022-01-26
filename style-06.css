@@ -1,0 +1,153 @@
+@keyframes fade {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+* {
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: "Inter", sans-serif;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+  
+body::-webkit-scrollbar-track {
+    background: #fff; 
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: #1c1cff;
+    border-radius: 20px;
+    border: 2px solid #fff;
+}
+   
+a {
+    text-decoration: none;
+    color: #1c1cff;
+    transition: all .3s ease;
+}
+
+a:visited {
+    color: #1c1cff;
+}
+
+a:hover {
+    color: #feb398;
+    font-style: italic;
+}
+
+h1::selection,
+h2::selection,
+p::selection,
+em::selection,
+strong::selection,
+i::selection,
+div::selection {
+    color: #000;
+    background-color: #feb398;
+}
+
+a::selection,
+span::selection {
+    color: #fff;
+    background-color: #1c1cff;
+    font-weight: 300;
+}
+
+
+.background {
+    background-image: url("assets/almare-bg-01.png");
+    background-position: center;
+    background-size: cover;
+    /* background-attachment: fixed; */
+    background-repeat: no-repeat;  
+    width: 100vw;
+    height: 100vh;
+    /* position: fixed;
+    top: 0;
+    left: 0; */
+    z-index: 0;
+}
+
+/* .background::after {
+    content: '';
+    background-color: #fff; 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: .4;
+} */
+
+.main {
+    position: relative;
+    /* padding: calc(2vw + 16px); */
+    animation: fade 1s ease-in 1;
+}
+
+.header {
+    padding: calc(1vw + 16px) calc(2vw + 16px);
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px #1c1cff;
+    z-index: 3;
+}
+
+.header div {
+    margin-right: calc(1vw + 16px);
+}
+
+.header div:last-child {
+    margin-right: 0;
+}
+
+.contact {
+    display: flex;
+    flex-direction: row;
+}
+
+.contact p {
+    margin-right: calc(1vw + 16px);
+}
+
+.contact p:last-child {
+    margin-right: 0;
+}
+
+.main-content {
+    padding: calc(2vw + 16px);
+    position: relative;
+    z-index: 3;
+    height: auto;
+    border-bottom: solid 1px #1c1cff;
+}
+
+.main-content p {
+    font-weight: 400;
+    font-size: calc(1vw + 16px);
+    line-height: 1.3;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.copy p {
+    margin-bottom: 32px;
+}
+
+.copy p span {
+    /* background-color: #1c1cff;
+    color: #fff; */
+    color: #feb398;
+}
+
+
