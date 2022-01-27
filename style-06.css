@@ -1,6 +1,15 @@
 @keyframes fade {
     0% {opacity: 0;}
+    50% {opacity: 0;}
+    75% {opacity: 0;}
     100% {opacity: 1;}
+}
+
+@keyframes extrafade {
+    0% {opacity: .75;}
+    50% {opacity: .75;}
+    75% {opacity: .75;}
+    100% {opacity: 0;}
 }
 
 * {
@@ -9,9 +18,37 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 100%;
+}
+
+/* grey: #e7e5e5 */
+/* red: #f33333 */
+/* purple: #7d33f3 */
+
+:root {
+    --bg-color: #ffffff;
+    --pr-color: #7d33f3;
+    --sc-color: #f2f0f0;
+    --txt-color: #1d1d1d;
+    --f-weigth: 400;
+    --m-p-large: calc(4vw + 1rem);
+    --m-p-medium: calc(2vw + 1rem);
+    --m-p-small: calc(1vw + 1rem);
+    --f-size-large: calc(1.5vw + 1rem);
+    --f-size-small: .85rem;
+    --f-size-xsmall: .75rem;
+    --border: solid 1px var(--pr-color);
+}
+
 body {
+    width: 100vw;
+    height: auto;
+    position: relative;
     overflow-x: hidden;
     font-family: "Inter", sans-serif;
+    color: var(--txt-color);
+    background-color: var(--bg-color);
 }
 
 body::-webkit-scrollbar {
@@ -19,28 +56,13 @@ body::-webkit-scrollbar {
 }
   
 body::-webkit-scrollbar-track {
-    background: #fff; 
+    background: var(--bg-color);
 }
   
 body::-webkit-scrollbar-thumb {
-    background-color: #1c1cff;
-    border-radius: 20px;
-    border: 2px solid #fff;
-}
-   
-a {
-    text-decoration: none;
-    color: #1c1cff;
-    transition: all .3s ease;
-}
-
-a:visited {
-    color: #1c1cff;
-}
-
-a:hover {
-    color: #feb398;
-    font-style: italic;
+    background-color: var(--pr-color);
+    /* border-radius: 20px; */
+    border-right: 9px solid var(--bg-color);
 }
 
 h1::selection,
@@ -49,105 +71,217 @@ p::selection,
 em::selection,
 strong::selection,
 i::selection,
-div::selection {
-    color: #000;
-    background-color: #feb398;
+div::selection,
+br::selection {
+    color: var(--txt-color);
+    background-color: var(--sc-color);
 }
 
 a::selection,
 span::selection {
-    color: #fff;
-    background-color: #1c1cff;
-    font-weight: 300;
+    color: var(--pr-color);
+    background-color: var(--sc-color);
+    font-weight: var(--f-weigth);
 }
 
+a, 
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+    text-transform: uppercase;
+}
 
-.background {
-    background-image: url("assets/almare-bg-01.png");
+a {
+    text-decoration: none;
+    color: var(--pr-color);
+    /* display: inline-block; */
+    /* transform: skewX(370deg); */
+    transition: font-style .3s ease, color 1.5s ease;
+}
+
+a:visited {
+    color: var(--pr-color);
+}
+
+a:hover {
+    font-style: italic;
+    color: var(--sc-color);
+}
+
+.initial {
+    /* background-image: url("assets/almare-logo-02.png");
     background-position: center;
-    background-size: cover;
-    /* background-attachment: fixed; */
-    background-repeat: no-repeat;  
+    background-repeat: no-repeat;
+    background-size: contain; */
     width: 100vw;
     height: 100vh;
-    /* position: fixed;
+    position: fixed;
     top: 0;
-    left: 0; */
-    z-index: 0;
+    right: 0;
+    z-index: 2;
+    opacity: 0;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    animation: extrafade 2s linear 1;
+    /* transition: all .2s linear; */
 }
-
-/* .background::after {
-    content: '';
-    background-color: #fff; 
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    opacity: .4;
-} */
 
 .main {
-    position: relative;
-    /* padding: calc(2vw + 16px); */
-    animation: fade 1s ease-in 1;
+    animation: fade 2s ease 1;
 }
 
-.header {
-    padding: calc(1vw + 16px) calc(2vw + 16px);
-    font-size: 16px;
+header,
+footer {
     display: flex;
     justify-content: space-between;
-    border-bottom: solid 1px #1c1cff;
-    z-index: 3;
 }
 
-.header div {
-    margin-right: calc(1vw + 16px);
+header {
+    font-size: var(--f-size-small);
+    line-height: 1.3;
+    padding: var(--f-size-small) var(--m-p-large);
+    border-bottom: var(--border);
 }
 
-.header div:last-child {
+footer {
+    height: 4vh;
+    align-items: center;
+    padding: 0 var(--m-p-small);  
+    border-top: var(--border);
+}
+
+header div,
+footer div {
+    margin-right: var(--m-p-medium);
+}
+
+header div:last-child,
+footer div:last-child {
     margin-right: 0;
 }
 
 .contact {
+    height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
-.contact p {
-    margin-right: calc(1vw + 16px);
+.agenda {
+    max-width: 23%;
 }
 
-.contact p:last-child {
-    margin-right: 0;
+.agenda-title {
+    background-color: var(--sc-color);
 }
 
 .main-content {
-    padding: calc(2vw + 16px);
-    position: relative;
-    z-index: 3;
+    padding: var(--m-p-large);
     height: auto;
-    border-bottom: solid 1px #1c1cff;
+    border-bottom: var(--border);
 }
 
 .main-content p {
-    font-weight: 400;
-    font-size: calc(1vw + 16px);
+    font-weight: var(--f-weigth);
+    font-size: var(--f-size-large);
     line-height: 1.3;
     text-transform: uppercase;
-    color: #000;
 }
 
 .copy p {
-    margin-bottom: 32px;
+    margin-bottom: 2rem;
 }
 
 .copy p span {
-    /* background-color: #1c1cff;
-    color: #fff; */
-    color: #feb398;
+    /* display: inline-block; */
+    background-color: var(--sc-color);
+    color: var(--txt-color);
+    font-weight: var(--f-weigth);
+    /* border-bottom: var(--border); */
+    /* transition: color 1.5s ease; */
 }
 
+/* .copy p span:hover {
+    color: var(--bg-color);
+} */
 
+.cover-image {
+    background-image: url("assets/almare-bg-01.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;  
+    width: 100vw;
+    height: calc(96vh - 1px);
+    padding: var(--m-p-small) var(--m-p-large);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.caption {
+    max-width: 25%;
+    height: auto;
+    color: var(--bg-color);
+    font-size: var(--f-size-xsmall);
+    font-weight: 300;
+}
+
+footer p,
+footer a {
+    font-size: var(--f-size-xsmall);
+}
+
+@media screen and (max-width: 900px)  {
+    .main {
+        animation: fade 1s ease 1;
+    }
+    .initial {
+        width: 70vw;
+        position: absolute;
+        top: var(--f-size-small);
+        right: var(--m-p-large);
+        opacity: .75;
+        pointer-events: none;
+        mix-blend-mode: multiply;
+        animation: none;
+    }
+    header {
+        display: block;
+        }
+    header div {
+        margin: 0 0 var(--m-p-small) 0; 
+    }
+    header div:last-child {
+        margin: 0;
+    }
+    .agenda {
+        max-width: 100%;
+    }
+    .caption {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    :root {
+        --m-p-large: calc(1vw + 1rem);
+        --f-size-small: 1rem;
+        --f-size-xsmall: .85rem;
+    }
+    .initial {
+        position: fixed;
+        width: 100vw;
+        top: 0;
+        right: 0;
+        opacity: 0;
+        animation: extrafade 2s linear 1;
+    }
+    .main {
+        animation: fade 2s ease 1;
+    }
+}
