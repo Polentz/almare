@@ -28,16 +28,16 @@ html {
 
 :root {
     /* light mode */
-    --bg-color: #ffffff;
+    /* --bg-color: #ffffff;
     --pr-color: #7d33f3;
     --sc-color: #f2f0f0;
-    --txt-color: #1d1d1d;
+    --txt-color: #1d1d1d; */
 
     /* dark mode */
-    /* --bg-color: #1d1d1d;
+    --bg-color: #1d1d1d;
     --pr-color: #8870ff;
     --sc-color: #3a3a3a;
-    --txt-color: #ffffff; */
+    --txt-color: #ffffff;
 
     --m-p-large: calc(4vw + 1rem);
     --m-p-medium: calc(2vw + 1rem);
@@ -278,11 +278,6 @@ footer a {
 
 @media screen and (max-width: 420px) {
     :root {
-            /* dark mode */
-        --bg-color: #1d1d1d;
-        --pr-color: #8870ff;
-        --sc-color: #3a3a3a;
-        --txt-color: #ffffff;
         --m-p-large: calc(1vw + 1rem);
         --f-size-small: 1rem;
         --f-size-xsmall: .85rem;
