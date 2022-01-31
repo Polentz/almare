@@ -132,21 +132,13 @@ span {
 
 .initial {
     width: 50vw;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
     z-index: 3;
-    opacity: 1;
-    /* pointer-events: none; */
+    pointer-events: none;
     mix-blend-mode: hard-light;
-}
-
-.initial img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .menu {
@@ -197,7 +189,7 @@ span {
 .agenda-content {
     padding: var(--m-p-medium);
     position: fixed;
-    transition: transform 1s .2s ease;
+    transition: transform .5s .2s ease;
     background-color: var(--bg-color);
 }
 
@@ -227,7 +219,7 @@ span {
 
 .main-content,
 .contact {
-    transform: translateX(-100%);
+    transform: translateX(0);
 }
 
 .main-content,
@@ -246,13 +238,21 @@ span {
     top: 0;
     right: 0;
     border-left: var(--border);
-    transform: translateX(30vw);
+    transform: translateX(0);
 }
 
 .contact,
 .agenda-content {
     width: 30vw;
     z-index: 4;
+}
+
+.close-left {
+    transform: translateX(-100%);
+}
+
+.close-right {
+    transform: translateX(100%);
 }
 
 .agenda {
@@ -322,10 +322,6 @@ span {
     text-transform: none;
 }
 
-.open {
-    transform: translateX(0);
-}
-
 .close-btn-a,
 .close-btn-c,
 .close-btn-m {
@@ -355,12 +351,6 @@ span {
     .agenda-content {
         width: 40vw;
     }
-    .agenda-content {
-        transform: translateX(40vw);
-    }
-    .open {
-        transform: translateX(0);
-    }
     .caption {
         max-width: 50%;
     }
@@ -374,7 +364,9 @@ span {
     }
     .initial {
         width: 100vw;
+        height: 100vh;
         top: 50%;
+        transform: translate(-50%, -50%);
     }
     .caption {
         margin-bottom: var(--m-p-large);
@@ -388,14 +380,8 @@ span {
         width: 100vw;
         border: var(--border);
     }
-    .agenda-content {
-        transform: translateX(100vw);
-    }
     .close-btn-a {
         left: initial;
         right: var(--f-size-xsmall);
-    }
-    .open {
-        transform: translateX(0);
     }
 }
