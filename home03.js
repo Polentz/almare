@@ -31,7 +31,7 @@ function closeFunction(button, content, className) {
 }
 
 function openFunction(button, content, className) {
-    button.addEventListener("mouseenter", () => {
+    button.addEventListener("click", () => {
         content.classList.remove(className);
     });
 }

@@ -52,7 +52,7 @@ html {
 
 body {
     width: 100vw;
-    height: auto;
+    height: 100vh;
     position: relative;
     overflow: hidden;
     font-family: "Inter", sans-serif;
@@ -144,10 +144,9 @@ span {
 .menu {
     width: 100vw;
     height: 100vh;
-    position: fixed;
+    /* position: absolute;
     top: 0;
-    left: 0;
-    z-index: 2;
+    left: 0; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -156,7 +155,8 @@ span {
 .menu a {
     font-size: var(--f-size-large);
     color: var(--txt-color);
-    cursor: crosshair;
+    padding: 8px;
+    cursor: pointer;
     transition: font-style .3s ease, color 1.5s ease;
 }
 
@@ -171,9 +171,11 @@ span {
 
 .top-menu,
 .bottom-menu {
+    width: 100vw;
     display: flex;
     justify-content: space-between;
     padding: var(--m-p-small);
+    z-index: 2;
 }
 
 .top-menu {
@@ -188,13 +190,13 @@ span {
 .contact,
 .agenda-content {
     padding: var(--m-p-medium);
-    position: fixed;
+    position: absolute;
     transition: transform .5s .2s ease;
     background-color: var(--bg-color);
 }
 
 .main-content {
-    width: 70vw;
+    /* width: 70vw; */
     height: 100vh;
     top: 0;
     left: 0;
@@ -210,7 +212,7 @@ span {
 .contact {
     height: 50vh;
     bottom: 0;
-    left: 0;
+    left: -1px;
     font-size: var(--f-size-large);
     border-top: var(--border);
     border-right: var(--border);
@@ -243,16 +245,8 @@ span {
 
 .contact,
 .agenda-content {
-    width: 30vw;
+    /* width: 30vw; */
     z-index: 4;
-}
-
-.close-left {
-    transform: translateX(-100%);
-}
-
-.close-right {
-    transform: translateX(100%);
 }
 
 .agenda {
@@ -305,9 +299,10 @@ span {
     flex-direction: row;
     align-items: flex-end;
     justify-content: center;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
+    z-index: 1;
 }
 
 .caption {
@@ -320,6 +315,14 @@ span {
 
 .caption p {
     text-transform: none;
+}
+
+.close-left {
+    transform: translateX(-100%);
+}
+
+.close-right {
+    transform: translateX(100%);
 }
 
 .close-btn-a,
@@ -344,13 +347,13 @@ span {
 }
 
 @media screen and (max-width: 900px)  {
-    .main-content {
+    /* .main-content {
         width: 60vw;
     }
     .contact,
     .agenda-content {
         width: 40vw;
-    }
+    } */
     .caption {
         max-width: 50%;
     }
@@ -364,15 +367,32 @@ span {
     }
     .initial {
         width: 100vw;
-        height: 100vh;
         top: 50%;
         transform: translate(-50%, -50%);
     }
-    .caption {
-        margin-bottom: var(--m-p-large);
-    }
     .menu {
-        padding-bottom: var(--m-p-large);
+        width: 100vw;
+        height: auto;
+        display: flex;
+        justify-content: flex-start;
+    }
+    .top-menu,
+    .bottom-menu {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    #about-btn {
+        writing-mode: vertical-lr;
+    }
+    #lang {
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+    }
+    .caption {
+        max-width: 100%;
+        text-align: left;
+        font-size: 10px;
+        margin-bottom: var(--m-p-large);
     }
     .main-content,
     .contact,
