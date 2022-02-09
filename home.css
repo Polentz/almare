@@ -213,6 +213,10 @@ footer div:last-child {
     margin-bottom: 2rem;
 }
 
+/* .copy p a {
+    white-space: nowrap;
+} */
+
 .cover-image {
     background-image: url("assets/almare-bg-01.png");
     background-position: center;
