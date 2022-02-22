@@ -64,6 +64,7 @@ body {
     position: relative;
     overflow-x: hidden;
     font-family: "Inter", sans-serif;
+    font-weight: var(--f-weight);
     color: var(--txt-color);
     background-color: var(--bg-color);
     animation: fadeIn .2s ease 1;
@@ -132,6 +133,7 @@ h1 {
 a {
     text-decoration: none;
     color: var(--txt-color);
+    font-weight: var(--f-weight);
     border-bottom: var(--border-link);
     transition: font-style .3s ease, color 1s ease, border-bottom 1s ease;
 }
@@ -296,6 +298,7 @@ footer a {
 
 .agenda h2 {
     font-size: var(--f-size-small);
+    font-weight: var(--f-weight);
     line-height: 1.3;
 }
 
