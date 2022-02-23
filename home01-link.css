@@ -117,7 +117,6 @@ span::selection {
 
 a, 
 p,
-h2,
 h3,
 h4,
 h5,
@@ -133,7 +132,6 @@ h1 {
 a {
     text-decoration: none;
     color: var(--txt-color);
-    font-style: italic;
     font-weight: var(--f-weight);
     border-bottom: var(--border-link);
     transition: font-style .3s ease, color 1s ease, border-bottom 1s ease;
@@ -145,7 +143,7 @@ a:active {
 }
 
 a:hover {
-    /* font-style: italic; */
+    font-style: italic;
     color: var(--sc-color);
     border-bottom: solid 1px var(--bg-color);
 }
@@ -298,9 +296,14 @@ footer a {
 }
 
 .agenda h2 {
-    font-size: var(--f-size-small);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1rem;
     font-weight: var(--f-weight);
     line-height: 1.3;
+}
+
+.agenda h2 a {
+    text-transform: none;
 }
 
 .slide-content {
