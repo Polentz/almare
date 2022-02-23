@@ -133,6 +133,7 @@ h1 {
 a {
     text-decoration: none;
     color: var(--txt-color);
+    font-style: italic;
     font-weight: var(--f-weight);
     border-bottom: var(--border-link);
     transition: font-style .3s ease, color 1s ease, border-bottom 1s ease;
@@ -144,7 +145,7 @@ a:active {
 }
 
 a:hover {
-    font-style: italic;
+    /* font-style: italic; */
     color: var(--sc-color);
     border-bottom: solid 1px var(--bg-color);
 }
