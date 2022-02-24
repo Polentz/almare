@@ -4,7 +4,7 @@ const closeBtn = document.querySelector(".close-btn");
 const main = document.querySelector(".main");
 const mainContent = document.querySelector(".main-content");
 const logo = document.querySelector(".logo");
-// const marquee = document.querySelector(".marquee");
+const body = document.querySelector("body");
 
 window.onload = functions;
 
@@ -22,15 +22,18 @@ function openContent(button, content) {
             main.style.filter = "blur(0px)";
             logo.style.filter = "blur(0px)";
             mainContent.style.cursor = "inherit";
-            // marquee.classList.remove("paused");
             closeBtn.style.opacity = "0";
+            setTimeout(() => {
+                body.style.overflowY = "scroll";
+            }, 500);
+
         } else {
             content.classList.add("open");
             main.style.color = "var(--sc-color)";
             main.style.filter = "blur(3px)";
             logo.style.filter = "blur(3px)";
             mainContent.style.cursor = "default";
-            // marquee.classList.add("paused");
+            body.style.overflowY = "hidden";
             setTimeout(() => {
                 closeBtn.style.opacity = "1";
             }, 1000);
@@ -46,9 +49,9 @@ function closeContent(close, content) {
         logo.style.filter = "blur(0px)";
         mainContent.style.cursor = "inherit";
         closeBtn.style.opacity = "0";
-        // setTimeout(() => {
-        //     marquee.classList.remove("paused");
-        // }, 1000);
+        setTimeout(() => {
+            body.style.overflowY = "scroll";
+        }, 500);
     });
 }
 

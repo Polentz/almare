@@ -36,7 +36,7 @@ html {
     --m-p-small: calc(1vw + 1rem);
 
     --f-size-large: calc(1.5vw + 1rem);
-    --f-size-medium: calc(.75vw + 1rem);
+    --f-size-medium: calc(.4vw + 1rem);
     --f-size-small: .85rem;
     --f-size-xsmall: .75rem;
     --f-weight: 400;
@@ -298,6 +298,7 @@ footer a {
     line-height: 1.3;
     font-size: var(--f-size-small);
     text-transform: uppercase;
+    margin-bottom: 8px;
 }
 
 .slide-block a {
