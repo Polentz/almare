@@ -36,7 +36,7 @@ html {
     --m-p-small: calc(1vw + 1rem);
 
     --f-size-large: calc(1.5vw + 1rem);
-    --f-size-medium: calc(.4vw + 1rem);
+    --f-size-medium: 1.2rem;
     --f-size-small: .85rem;
     --f-size-xsmall: .75rem;
     --f-weight: 400;
@@ -177,7 +177,6 @@ footer a {
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
 }
 
 .contact div:not(:last-child),
@@ -191,7 +190,6 @@ footer a {
 }
 
 .buttons a {
-    /* font-size: var(--f-size-medium); */
     text-transform: uppercase;
     border-bottom: none;
     border-left: var(--border-link);
@@ -289,23 +287,22 @@ footer a {
 }
 
 .slide-block h2 {
-    font-size: var(--f-size-small);
+    font-size: var(--f-size-large);
     text-transform: uppercase;
     margin-bottom: var(--m-p-small);
 }
 
 .slide-block p {
-    line-height: 1.3;
+    line-height: 1.2;
     font-size: var(--f-size-small);
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin: 8px 0;
 }
 
 .slide-block a {
     line-height: 1.2;
     font-size: var(--f-size-medium);
     text-transform: none;
-    margin-right: 1rem;
 }
 
 .main-content {
@@ -327,7 +324,7 @@ footer a {
 }
 
 .cover-image {
-    background-image: url("assets/almare-bg-01.png");
+    background-image: url("upload/almare-bg-01.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;  
@@ -371,12 +368,14 @@ footer a {
         mix-blend-mode: hard-light;
     }
     header {
-        display: block;
-        }
+        display: flex;
+        flex-direction: column;
+    }
     header div {
         margin: 0 0 var(--m-p-small) 0; 
     }
     header div:last-child {
+        order: 2;
         margin: 0;
     }
     .agenda {
@@ -412,23 +411,56 @@ footer a {
     }
     header {
         order: 2;
+        padding: 0;
+    }
+    header div {
+        margin: 0;
+    }
+    header div:nth-child(2) {
+        margin-top: 2rem;
     }
     .contact,
+    .buttons {
+        padding: var(--m-p-large);
+        background-color: var(--bg-color);
+        z-index: 9;
+    }
     .agenda {
-        padding-bottom: 4vh;
+        padding: var(--m-p-large);
+        order: 3;
+    }
+    .contact {
+        margin: 0;
+        border-bottom: var(--border);
     }
     .contact h1 {
-        font-size: var(--f-size-large);
+        display: none;
+    }
+    .contact-block {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
     }
     .contact-block p {
         font-size: var(--f-size-large);
+        margin-right: 8px;
+    }
+    header:nth-child(2) {
+        margin-top: 2rem;
     }
     .content-wrapper {
         width: 80vw;
     }
+    .slide-block a {
+        font-size: var(--f-size-small);
+    }
+    .slide-block p {
+        font-size: var(--f-size-xsmall);
+    }
     .buttons {
         writing-mode: horizontal-tb;
         font-size: var(--f-size-large);
+        border-bottom: var(--border);
     }
     .buttons a {
         display: inline;
