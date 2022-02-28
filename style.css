@@ -443,7 +443,7 @@ footer a {
     }
     .contact-block p {
         font-size: var(--f-size-large);
-        margin-right: 8px;
+        margin-right: 1rem;
     }
     header:nth-child(2) {
         margin-top: 2rem;
