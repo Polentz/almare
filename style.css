@@ -34,30 +34,6 @@
     }
 }
 
-@-webkit-keyframes moveLeft {
-    0% {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
-
-    100% {
-        -webkit-transform: translateX(-100vw);
-        transform: translateX(-100vw);
-    }
-}
-
-@keyframes moveLeft {
-    0% {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
-
-    100% {
-        -webkit-transform: translateX(-100vw);
-        transform: translateX(-100vw);
-    }
-}
-
 * {
     margin: 0;
     -webkit-box-sizing: border-box;
@@ -67,9 +43,11 @@
 
 html {
     font-size: 100%;
+    scroll-behavior: smooth;
 }
 
 :root {
+    --doc-height: 100%;
     --bg-color: #1d1d1d;
     --pr-color: #fff;
     --sc-color: #3a3a3a;
@@ -83,7 +61,6 @@ html {
     --f-size-medium: 1.2rem;
     --f-size-small: .85rem;
     --f-size-xsmall: .75rem;
-    --f-weight: 400;
 
     --border: solid 1px var(--pr-color);
     --border-link: solid 1px var(--txt-color);
@@ -95,7 +72,7 @@ body {
     position: relative;
     overflow-x: hidden;
     font-family: "Inter", sans-serif;
-    font-weight: var(--f-weight);
+    font-weight: 400;
     color: var(--txt-color);
     background-color: var(--bg-color);
     -webkit-animation: fadeIn .2s ease 1;
@@ -175,7 +152,7 @@ h4,
 h5,
 h6,
 span {
-    font-weight: var(--f-weight);
+    font-weight: 400;
 }
 
 h1 {
@@ -185,8 +162,9 @@ h1 {
 a {
     text-decoration: none;
     color: var(--txt-color);
-    font-weight: var(--f-weight);
+    font-weight: 400;
     border-bottom: var(--border-link);
+    cursor: pointer;
     -webkit-transition: font-style .3s ease, color 1s ease, border-bottom 1s ease;
     -o-transition: font-style .3s ease, color 1s ease, border-bottom 1s ease;
     transition: font-style .3s ease, color 1s ease, border-bottom 1s ease;
@@ -200,16 +178,22 @@ a:active {
 a:hover {
     font-style: italic;
     color: var(--sc-color);
-    border-bottom: solid 1px var(--bg-color);
+    border-bottom: solid 1px #ffffff00;
 }
 
 .logo {
-    display: none;
-    -webkit-transition: -webkit-filter .5s .5s ease;
-    transition: -webkit-filter .5s .5s ease;
-    -o-transition: filter .5s .5s ease;
-    transition: filter .5s .5s ease;
-    transition: filter .5s .5s ease, -webkit-filter .5s .5s ease;
+    display: block;
+    width: 15vw;
+    position: absolute;
+    top: var(--f-size-small);
+    right: var(--m-p-large);
+    opacity: 1;
+    pointer-events: none;
+    background-color: transparent;
+    mix-blend-mode: color-dodge;
+    filter: blur(4px);
+    -webkit-animation: fadeIn .5s ease 1;
+    animation: fadeIn .5s ease 1;
 }
 
 .main {
@@ -225,18 +209,8 @@ a:hover {
     -o-transition: filter .5s .5s ease, color .5s .3s ease;
     transition: filter .5s .5s ease, color .5s .3s ease;
     transition: filter .5s .5s ease, color .5s .3s ease, -webkit-filter .5s .5s ease;
-    -webkit-animation: fadeIn .8s ease 1;
-    animation: fadeIn .8s ease 1;
-}
-
-header,
-footer {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
+    -webkit-animation: fadeIn 1s ease 1;
+    animation: fadeIn 1s ease 1;
 }
 
 header {
@@ -248,6 +222,12 @@ header {
 
 footer {
     height: 4vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -264,50 +244,12 @@ footer a {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-}
-
-.contact div:not(:last-child),
-.contact h1 {
-    margin-bottom: var(--f-size-small)
-}
-
-.buttons {
-    cursor: pointer;
-    -webkit-writing-mode: vertical-lr;
-    -ms-writing-mode: tb-lr;
-    writing-mode: vertical-lr;
-}
-
-.buttons a {
-    text-transform: uppercase;
-    border-bottom: none;
-    border-left: var(--border-link);
-    -webkit-transition: font-style .3s ease, color 1s ease, border-left 1s ease;
-    -o-transition: font-style .3s ease, color 1s ease, border-left 1s ease;
-    transition: font-style .3s ease, color 1s ease, border-left 1s ease;
-}
-
-.buttons a:hover {
-    border-left: solid 1px var(--bg-color);
-}
-
-.agenda {
-    max-width: 23%;
-}
-
-.agenda p {
-    text-transform: uppercase;
-}
-
-.agenda h2 {
-    font-size: var(--f-size-medium);
-    font-weight: var(--f-weight);
-    line-height: 1.2;
-    margin-bottom: 8px;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
 }
 
 .slide-content {
@@ -418,49 +360,58 @@ footer a {
     text-transform: none;
 }
 
-.main-content {
+.about-content,
+.agenda-content {
     padding: var(--m-p-large);
     height: auto;
     border-bottom: var(--border);
     position: relative;
 }
 
-.main-content p {
-    font-weight: var(--f-weight);
+.about-content p {
     font-size: var(--f-size-large);
     line-height: 1.3;
     text-transform: uppercase;
 }
 
-.copy p {
+.copy p:not(:last-child) {
     margin-bottom: 2rem;
 }
 
+.agenda-wrapper {
+    max-width: 50%;
+}
+
+.agenda-block:not(:last-child) {
+    margin-bottom: var(--m-p-medium);
+}
+
+.agenda-block h2 {
+    font-size: var(--f-size-large);
+    line-height: 1.2;
+    text-transform: uppercase;
+    margin: 8px 0;
+}
+
 .cover-image {
-    background-image: url("upload/almare-bg-01.png");
+    width: 100vw;
+    height: calc(96vh - 1px);
+    position: relative;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    background-image: url("https://www.almareproject.it/upload/ALMARE_SQ_9.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    width: 100vw;
-    height: calc(96vh - 1px);
-    padding: var(--m-p-small) var(--m-p-large);
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-box-align: end;
-    -ms-flex-align: end;
-    align-items: flex-end;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
 }
 
 .caption {
-    max-width: 35%;
+    position: absolute;
+    bottom: var(--m-p-small);
+    left: var(--m-p-large);
     height: auto;
     color: var(--txt-color);
     font-size: var(--f-size-xsmall);
@@ -473,148 +424,28 @@ footer a {
     text-transform: uppercase;
 }
 
-@media screen and (max-width: 900px) {
-    .main {
-        -webkit-animation: fadeIn 1s ease 1;
-        animation: fadeIn 1s ease 1;
-    }
-
-    .logo {
-        display: block;
-        width: 70vw;
-        position: absolute;
-        top: var(--f-size-small);
-        right: var(--m-p-large);
-        opacity: 1;
-        pointer-events: none;
-        background-color: transparent;
-        mix-blend-mode: color-dodge;
-    }
-
-    header {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-    }
-
-    header div {
-        margin: 0 0 var(--m-p-small) 0;
-    }
-
-    header div:last-child {
-        -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-        order: 2;
-        margin: 0;
-    }
-
-    .agenda {
-        max-width: 100%;
-    }
-
-    .slide-content {
-        width: 100vw;
-        z-index: 10;
-    }
-
-    .content-wrapper {
-        width: 90vw;
-    }
-
-    .cover-image {
-        z-index: 9;
-    }
-
-    .caption {
-        max-width: 100%;
-    }
-}
-
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 620px) {
     :root {
         --m-p-large: calc(1vw + 1rem);
+        --f-size-xsmall: .5rem;
     }
 
     .logo {
         position: fixed;
-        filter: blur(4px);
-    }
-
-    .main-content {
-        -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-        order: 1;
-        margin-top: 16vh;
+        width: 70vw;
     }
 
     header {
-        -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-        order: 2;
-        padding: 0;
-    }
-
-    header div {
-        margin: 0;
-    }
-
-    .contact,
-    .buttons {
         padding: var(--m-p-large);
-    }
-
-    .agenda {
-        padding: var(--m-p-large);
-        -webkit-box-ordinal-group: 4;
-        -ms-flex-order: 3;
-        order: 3;
     }
 
     .contact {
-        position: absolute;
-        top: 0;
-        left: 0;
-        min-height: auto;
-        width: 100%;
-        margin: 0;
-        flex-direction: row;
-        justify-content: space-between;
-        border-bottom: var(--border);
-    }
-
-    .contact h1 {
-        display: none;
-    }
-
-    .contact-block {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -webkit-box-pack: start;
-        -ms-flex-pack: start;
-        justify-content: flex-start;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-        row-gap: 8px;
+        gap: var(--m-p-large);
     }
 
-    .contact-block p {
-        margin-right: 1rem;
-    }
-
-    header:nth-child(2) {
-        margin-top: 2rem;
+    .agenda-wrapper {
+        max-width: 100%;
     }
 
     .content-wrapper {
@@ -629,38 +460,11 @@ footer a {
         font-size: var(--f-size-xsmall);
     }
 
-    .buttons {
-        -webkit-writing-mode: horizontal-tb;
-        -ms-writing-mode: lr-tb;
-        writing-mode: horizontal-tb;
-        font-size: var(--f-size-medium);
-        border-bottom: var(--border);
-    }
-
-    .buttons a {
-        display: inline;
-        border-left: none;
-        border-bottom: var(--border-link);
-    }
-
-    .buttons a:hover {
-        border-left: none;
-        border-bottom: solid 1px var(--bg-color);
-    }
-
     .close-btn {
         width: 10vw;
     }
 
     .cover-image {
-        -webkit-box-ordinal-group: 4;
-        -ms-flex-order: 3;
-        order: 3;
-    }
-
-    footer {
-        -webkit-box-ordinal-group: 5;
-        -ms-flex-order: 4;
-        order: 4;
+        height: 40vh;
     }
 }
