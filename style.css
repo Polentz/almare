@@ -458,16 +458,13 @@ footer p {
     .mobile-btn svg {
         width: 100%;
         stroke: var(--txt-color);
+        stroke-width: 1.5px;
         transition: transform .5s ease;
     }
 
     .mobile-btn svg.rotate {
         transform: rotate(45deg);
     }
-
-    /* .mobile-btn a {
-        border-bottom: none;
-    } */
 
     .contact-block:nth-of-type(3),
     .contact-block:nth-of-type(4),
