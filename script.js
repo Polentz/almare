@@ -4,7 +4,9 @@ const closeBtn = document.querySelector(".close-btn");
 const main = document.querySelector(".main");
 const mainContent = document.querySelector(".about-content");
 const body = document.querySelector("body");
-
+const mobileBtn = document.querySelector(".mobile-btn");
+const mobileBtnUi = document.querySelector(".mobile-btn svg");
+const mobileMenu = document.querySelectorAll(".contact-block");
 
 const documentHeight = () => {
     const doc = document.documentElement
@@ -31,6 +33,7 @@ const functions = () => {
     openContent(slideBtn, slideContent);
     closeContent(closeBtn, slideContent);
     closeContent(mainContent, slideContent);
+    toggleMenu(mobileBtn, mobileMenu);
 }
 
 const openContent = (button, content) => {
@@ -69,6 +72,15 @@ const closeContent = (close, content) => {
             body.style.overflowY = "scroll";
         }, 500);
     });
+}
+
+const toggleMenu = (button, menu) => {
+    button.addEventListener("click", () => {
+        mobileBtnUi.classList.toggle("rotate");
+        menu.forEach(element => {
+            element.classList.toggle("visible");
+        });
+    })
 }
 
 functions();
