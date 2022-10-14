@@ -184,7 +184,7 @@ a:hover {
 .logo {
     display: block;
     width: 45vw;
-    position: absolute;
+    position: fixed;
     top: var(--f-size-small);
     right: var(--m-p-large);
     opacity: 1;
@@ -238,7 +238,7 @@ header {
 }
 
 .slide-content {
-    width: 45vw;
+    width: 40vw;
     height: var(--doc-height);
     position: fixed;
     top: 0;
@@ -436,7 +436,6 @@ footer p {
     }
 
     .logo {
-        position: fixed;
         width: 70vw;
     }
 
