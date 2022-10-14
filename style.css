@@ -217,7 +217,7 @@ header {
     font-size: var(--f-size-small);
     line-height: 1.3;
     padding: var(--f-size-small) var(--m-p-large);
-    border-bottom: var(--border);
+    /* border-bottom: var(--border); */
 }
 
 .contact {
@@ -233,10 +233,9 @@ header {
     justify-content: space-between;
 }
 
-.contact-block p {
+/* .contact-block p {
     font-size: var(--f-size-medium);
-}
-
+} */
 
 .slide-content {
     width: 45vw;
