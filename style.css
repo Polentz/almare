@@ -233,6 +233,11 @@ header {
     justify-content: space-between;
 }
 
+.contact-block p {
+    font-size: var(--f-size-medium);
+}
+
+
 .slide-content {
     width: 45vw;
     height: var(--doc-height);
