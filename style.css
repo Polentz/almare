@@ -383,17 +383,19 @@ header {
 
 .cover-image {
     width: 100vw;
-    height: calc(96vh - 1px);
+    height: auto;
     position: relative;
+    border-bottom: var(--border);
 }
 
 .image {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.image img {
     width: 100%;
-    height: 100%;
-    background-image: url("https://www.almareproject.it/upload/ALMARE_SQ_9.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .caption {
@@ -401,14 +403,14 @@ header {
     bottom: 0;
     left: 0;
     height: auto;
-    padding: var(--m-p-small) var(--m-p-large);
+    padding: 1rem var(--m-p-large);
     color: var(--txt-color);
-    font-size: var(--f-size-xsmall);
+    font-size: var(--f-size-small);
     text-transform: none;
 }
 
 footer {
-    height: 4vh;
+    height: auto;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -418,8 +420,7 @@ footer {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    padding: 0 var(--m-p-small);
-    border-top: var(--border);
+    padding: .5rem var(--m-p-large);
 }
 
 footer p {
@@ -499,7 +500,8 @@ footer p {
         width: 8vw;
     }
 
-    .cover-image {
-        height: 40vh;
+    .caption {
+        position: static;
+        font-size: var(--f-size-xsmall);
     }
 }
