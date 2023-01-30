@@ -29,13 +29,6 @@ if (anchorTags) {
     });
 }
 
-const functions = () => {
-    openContent(slideBtn, slideContent);
-    closeContent(closeBtn, slideContent);
-    closeContent(mainContent, slideContent);
-    toggleMenu(mobileBtn, mobileMenu);
-}
-
 const openContent = (button, content) => {
     button.addEventListener("click", () => {
         if (content.classList.contains(open)) {
@@ -83,4 +76,6 @@ const toggleMenu = (button, menu) => {
     })
 }
 
-functions();
+openContent(slideBtn, slideContent);
+closeContent(closeBtn, slideContent);
+toggleMenu(mobileBtn, mobileMenu);
