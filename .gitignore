@@ -7,9 +7,6 @@ Icon
 # Temporary files
 # ---------------
 
-/media/*
-!/media/index.html
-
 # Lock files
 # ---------------
 
