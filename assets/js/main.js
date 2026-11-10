@@ -8,6 +8,7 @@
     const TRAIL_FADE = 2.5;     // fade-out of each trail copy
     const TRAIL_DISTANCE = 10;  // px of mouse travel between trail copies
     const MAX_TRAIL = 1000;       // cap on live trail elements
+    const TOUCH_DISTANCE = 40;  // px of finger travel between trail copies on touch
     const IDLE_DELAY = 1;     // seconds without mouse movement before images start appearing alone
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -17,6 +18,8 @@
     let last = null;
     let idleTimer = null;
     let lastIdle = null;
+    let touchCycle = [];
+    let touchLast = null;
 
     const rand = (a, b) => a + Math.random() * (b - a);
 
@@ -82,8 +85,34 @@
         scheduleIdle(0.25 + HOLD + FADE);
     };
 
+    function nextTouchItem() {
+        if (!touchCycle.length) touchCycle = gsap.utils.shuffle([...items]);
+        return touchCycle.pop();
+    };
+
+    function onTouchMove(e) {
+        const px = e.clientX, py = e.clientY;
+        if (touchLast && Math.hypot(px - touchLast.x, py - touchLast.y) < TOUCH_DISTANCE) return;
+        touchLast = { x: px, y: py };
+        spawnTrail(nextTouchItem(), px, py);
+    };
+
+    function onDown(e) {
+        if (e.target.closest && e.target.closest('a')) return;
+        if (reduceMotion) return;
+        scheduleIdle(IDLE_DELAY);
+        if (e.pointerType !== 'touch') return;
+        touchLast = { x: e.clientX, y: e.clientY };
+        spawnTrail(nextTouchItem(), e.clientX, e.clientY);   // tap: drop a random image
+    };
+
     function onMove(e) {
         if (!reduceMotion) scheduleIdle(IDLE_DELAY);
+        if (e.pointerType === 'touch') {
+            if (e.target.closest && e.target.closest('a')) return;
+            if (!reduceMotion) onTouchMove(e);
+            return;
+        }
         const px = e.clientX, py = e.clientY;
         let hit = null;
         for (let i = items.length - 1; i >= 0; i--) {
@@ -104,5 +133,6 @@
     if (!reduceMotion) scheduleIdle(1);
     let t;
     window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(layout, 150); });
+    window.addEventListener('pointerdown', onDown, { passive: true });
     window.addEventListener('pointermove', onMove, { passive: true });
 })();
