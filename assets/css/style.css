@@ -64,7 +64,11 @@ h1 span {
 }
 
 h1 img {
+    display: block;
     width: 20rem;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
 }
 
 .visually-hidden {
@@ -152,6 +156,17 @@ h1 img {
     opacity: .5;
 }
 
+.marquee__group a {
+    padding-block: .5rem;
+    margin-block: -.5rem;
+}
+
+.marquee__group a:focus-visible {
+    outline: 2px solid var(--paper);
+    outline-offset: 4px;
+    opacity: 1;
+}
+
 .marquee--links .marquee__track:has(a:hover),
 .marquee--links .marquee__track:has(a:focus-visible) {
     animation-play-state: paused;
@@ -165,12 +180,34 @@ h1 img {
 
 @media (prefers-reduced-motion: reduce) {
     .marquee__track {
-        animation-duration: 120s;
+        animation: none;
+        width: 100%;
+    }
+
+    .marquee__group {
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: .5rem;
+    }
+
+    .marquee__group[aria-hidden="true"],
+    .marquee__group a[aria-hidden="true"] {
+        display: none;
     }
 }
 
 @media (max-width: 600px) {
-    h1 {
-        font-size: 5.4vw;
+    .marquee__group a {
+        padding-right: 2rem;
+    }
+
+    h1 img {
+        width: min(20rem, 80vw);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) and (max-width: 600px) {
+    .marquee__group a {
+        padding-inline: 1rem;
     }
 }

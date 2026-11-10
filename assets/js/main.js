@@ -10,6 +10,8 @@
     const MAX_TRAIL = 1000;       // cap on live trail elements
     const IDLE_DELAY = 1;     // seconds without mouse movement before images start appearing alone
 
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     let items = [];
     let liveTrail = 0;
     let last = null;
@@ -51,7 +53,7 @@
     };
 
     function spawnTrail(item, px, py) {
-        if (liveTrail >= MAX_TRAIL) return;
+        if (reduceMotion || liveTrail >= MAX_TRAIL) return;
         const el = document.createElement('div');
         el.className = 'trail';
         el.style.width = item.w + 'px';
@@ -81,7 +83,7 @@
     };
 
     function onMove(e) {
-        scheduleIdle(IDLE_DELAY);
+        if (!reduceMotion) scheduleIdle(IDLE_DELAY);
         const px = e.clientX, py = e.clientY;
         let hit = null;
         for (let i = items.length - 1; i >= 0; i--) {
@@ -99,7 +101,7 @@
     };
 
     layout();
-    scheduleIdle(1);
+    if (!reduceMotion) scheduleIdle(1);
     let t;
     window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(layout, 150); });
     window.addEventListener('pointermove', onMove, { passive: true });
