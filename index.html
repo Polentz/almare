@@ -37,6 +37,23 @@
     <link rel="apple-touch-icon" sizes="180x180" href="media/favicon/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="ALMARE" />
 
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": ["Organization", "PerformingGroup"],
+        "name": "Almare",
+        "alternateName": "ALMARE",
+        "url": "https://almare.xyz/",
+        "logo": "https://almare.xyz/media/almare-logo.webp",
+        "image": "https://almare.xyz/media/almare-1.webp",
+        "description": "Almare is a collective and event project that explores sound as an expressive medium.",
+        "email": "info@almare.xyz",
+        "sameAs": [
+            "https://www.instagram.com/almare.xyz/",
+            "https://soundcloud.com/almarexyz"
+        ]
+    }
+    </script>
 
     <link rel="preload" href="media/almare-logo.webp" as="image" type="image/webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,9 +89,16 @@
 
     <main class="hero">
         <h1>
-            <span><img src="media/almare-logo.webp" alt="Almare" width="320"></span>
+            <span class="visually-hidden">Almare</span>
+            <span><img src="media/almare-logo.webp"
+                    alt="Almare logotype uses uppercase letters in a bold sans-serif font" width="320"></span>
             <span aria-label="A new website is coming soon">A new website is coming soon</span>
         </h1>
+        <p class="visually-hidden">
+            Almare is a collective and event project that explores sound as an expressive medium.
+            Follow us on Instagram and SoundCloud, join our Telegram group or subscribe to the newsletter
+            to stay updated.
+        </p>
     </main>
 
     <div id="field" class="field" aria-hidden="true">
@@ -94,10 +118,11 @@
 
     <footer class="footer">
         <nav class="nav" aria-label="Social links">
-            <a href="https://mailchi.mp/almare.xyz/newsletter-almare" target="_blank" rel="noopener">Subscribe</a>
-            <a href="https://www.instagram.com/almare.xyz/" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://soundcloud.com/almarexyz" target="_blank" rel="noopener">SoundCloud</a>
-            <a href="https://t.me/+Jy9UjhaPMVNiM2Y0" target="_blank" rel="noopener">Telegram</a>
+            <a href="https://mailchi.mp/almare.xyz/newsletter-almare" target="_blank"
+                rel="noopener noreferrer">Subscribe</a>
+            <a href="https://www.instagram.com/almare.xyz/" target="_blank" rel="me noopener noreferrer">Instagram</a>
+            <a href="https://soundcloud.com/almarexyz" target="_blank" rel="me noopener noreferrer">SoundCloud</a>
+            <a href="https://t.me/+Jy9UjhaPMVNiM2Y0" target="_blank" rel="noopener noreferrer">Telegram</a>
             <a href="mailto:info@almare.xyz">info@almare.xyz</a>
         </nav>
     </footer>
