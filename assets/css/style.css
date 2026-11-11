@@ -2,13 +2,16 @@
     --ink: #000;
     --paper: #fff;
     --placeholder: #d9d9d9;
+    --font-size: 1.25rem;
 }
 
 html,
 body {
     height: 100%;
     overflow: hidden;
+    -ms-scroll-chaining: none;
     overscroll-behavior: none;
+    -ms-touch-action: none;
     touch-action: none;
 }
 
@@ -42,11 +45,20 @@ body {
     position: fixed;
     inset: 0;
     z-index: 2;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
-    padding: 0 4vw;
+    padding: 0 2rem;
     pointer-events: none;
     mix-blend-mode: difference;
 }
@@ -54,7 +66,7 @@ body {
 h1 {
     text-align: center;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: var(--font-size);
     line-height: 1;
     color: var(--paper);
 }
@@ -84,6 +96,33 @@ h1 img {
     border: 0;
 }
 
+.footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    mix-blend-mode: difference;
+}
+
+.nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 2rem 0;
+    font-size: var(--font-size);
+    ;
+    white-space: nowrap;
+}
+
 .marquee {
     position: fixed;
     top: 0;
@@ -91,22 +130,31 @@ h1 img {
     right: 0;
     z-index: 3;
     overflow: hidden;
-    padding: .75rem 0;
+    padding: 1rem 0;
     pointer-events: none;
-    font-size: 1rem;
+    font-size: var(--font-size);
+    ;
     letter-spacing: .04em;
     white-space: nowrap;
     mix-blend-mode: difference;
 }
 
 .marquee__track {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
+    -webkit-animation: marquee 40s linear infinite;
     animation: marquee 40s linear infinite;
 }
 
 .marquee__group {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-negative: 0;
     flex-shrink: 0;
 }
 
@@ -115,46 +163,13 @@ h1 img {
     color: var(--paper);
 }
 
-.nav {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    padding: .75rem 0;
-    font-size: 1rem;
-    letter-spacing: .04em;
-    white-space: nowrap;
-    mix-blend-mode: difference;
-}
-
-.marquee--links {
-    /* top: auto;
-    bottom: 0; */
-    pointer-events: auto;
-}
-
 .nav a,
 .marquee__group a {
     display: block;
-    padding-right: 6rem;
     color: var(--paper);
     cursor: pointer;
+    -webkit-transition: opacity .25s ease;
     transition: opacity .25s ease;
-}
-
-.nav a:hover,
-.nav a:focus-visible,
-.marquee__group a:hover,
-.marquee__group a:focus-visible {
-    /* text-decoration: underline;
-    text-underline-offset: .25em; */
-    opacity: .5;
 }
 
 .marquee__group a {
@@ -162,31 +177,39 @@ h1 img {
     margin-block: -.5rem;
 }
 
+.nav a:hover,
+.nav a:focus-visible,
+.marquee__group a:hover,
 .marquee__group a:focus-visible {
-    outline: 2px solid var(--paper);
-    outline-offset: 4px;
-    opacity: 1;
+    opacity: .5;
 }
 
-.marquee--links .marquee__track:has(a:hover),
-.marquee--links .marquee__track:has(a:focus-visible) {
-    animation-play-state: paused;
+@-webkit-keyframes marquee {
+    to {
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
 }
 
 @keyframes marquee {
     to {
+        -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
     .marquee__track {
+        -webkit-animation: none;
         animation: none;
         width: 100%;
     }
 
     .marquee__group {
+        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
         row-gap: .5rem;
     }
@@ -204,6 +227,15 @@ h1 img {
 
     h1 img {
         width: min(20rem, 80vw);
+    }
+
+    .nav {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: .5rem;
+        padding: 2rem 0;
     }
 }
 
